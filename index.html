@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cathy’s Choice</title>
+  <meta name="description" content="A romantic gateway for Cathy to choose her page." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f0f14;
+      --card:#1a1c27;
+      --accent:#ff9bbd;
+      --accent-2:#ffd6e6;
+      --text:#fffdfd;
+      --muted:#d6d9e8;
+      --glow: 0 0 32px rgba(255,155,189,.55);
+      --heart:#ff6f9d;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 600px at 85% 10%, #202235 8%, transparent 60%),
+        radial-gradient(1000px 500px at 10% 90%, #191b2d 8%, transparent 60%),
+        linear-gradient(180deg, var(--bg), #121422 50%, #0e1016);
+      color:var(--text);
+      font-family:"Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      animation: fadeIn 1.2s ease;
+    }
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .wrap{max-width:880px;width:100%}
+    header{text-align:center;margin-bottom:28px;position:relative;padding:0 12px}
+    .title{
+      font-family:"Playfair Display", serif;
+      font-size: clamp(28px, 6vw, 54px);
+      line-height:1.15;
+      color:var(--text);
+      letter-spacing:.8px;
+      text-shadow: 0 8px 28px rgba(255,155,189,.45);
+      animation: glowTitle 3s ease-in-out infinite alternate;
+    }
+    @keyframes glowTitle{from{text-shadow:0 0 14px rgba(255,155,189,.4)}to{text-shadow:0 0 32px rgba(255,214,230,.7)}}
+    .subtitle{
+      margin-top:12px;
+      font-weight:300;
+      color:var(--muted);
+      font-size: clamp(14px, 3vw, 19px);
+      font-style: italic;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:20px;
+      margin-top:28px;
+      padding:0 12px;
+    }
+    .card{
+      position:relative;
+      background:linear-gradient(180deg, var(--card), #141627);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:22px;
+      padding:22px;
+      overflow:hidden;
+      transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .card:hover{
+      transform:translateY(-6px) scale(1.03);
+      box-shadow: var(--glow);
+      border-color: rgba(255,155,189,.55);
+    }
+    .card h3{margin:6px 0 8px;font-size: clamp(18px, 3vw, 22px);font-weight:700;color:var(--text)}
+    .card p{margin:0 0 16px;font-size: clamp(14px, 2.6vw, 16px);color:var(--muted)}
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 20px;
+      border-radius:18px;
+      background:linear-gradient(180deg, var(--accent), #ff7fa8);
+      color:#1a0f14;
+      font-weight:700;
+      letter-spacing:.4px;
+      text-decoration:none;
+      transition:filter .25s ease, transform .2s ease;
+      box-shadow: 0 12px 28px rgba(255,127,168,.35);
+      width:100%;
+      text-align:center;
+    }
+    .cta:hover{filter:brightness(1.08);transform:translateY(-2px)}
+    .cta:active{transform:translateY(1px)}
+    .spark{
+      width:10px;height:10px;border-radius:50%;
+      background: var(--accent-2);
+      box-shadow:0 0 12px rgba(255,214,230,.9),0 0 22px rgba(255,155,189,.7);
+      animation: twinkle 2.6s ease-in-out infinite;
+    }
+    @keyframes twinkle{0%,100%{opacity:.6; transform:scale(.9)}50%{opacity:1; transform:scale(1.25)}}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:clamp(13px, 2.5vw, 15px);font-style:italic;padding:0 12px}
+    .softline{width:100%;height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);margin:24px 0;border:0}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">Cathy, choose your little adventure ❤️</div>
+      <div class="subtitle">Five sweet doors await—each glowing with a promise of love.</div>
+    </header>
+
+    <section class="grid" aria-label="Page choices">
+      <article class="card">
+        <h3>Day 1</h3>
+        <p>We met</p>
+        <a class="cta" href="first.html" aria-label="Open first page">
+          <span class="spark" aria-hidden="true"></span>Open
+        </a>
+      </article>
+
+     
+    </section>
+
+    <hr class="softline" />
+
+    <footer>
+      Crafted with love. Every door is a heartbeat—step through and you’ll find me waiting, Cathy. ❤️
+    </footer>
+  </div>
+</body>
+</html>
