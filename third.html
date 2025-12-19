@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Cathy 💕</title>
+  <style>
+    :root {
+      --bg:#0f0f14;
+      --card:#1a1c27;
+      --accent:#ff9bbd;
+      --accent-2:#ffd6e6;
+      --text:#fffdfd;
+      --muted:#d6d9e8;
+      --glow: 0 0 28px rgba(255,155,189,.45);
+      --heart:#ff6f9d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      background: linear-gradient(180deg, var(--bg), #121422 50%, #0e1016);
+      color: var(--text);
+      margin: 0;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      text-align: center;
+      color: var(--accent);
+      font-size: clamp(2em, 6vw, 2.8em);
+      margin-bottom: 20px;
+      text-shadow: 0 0 18px rgba(255,155,189,.5);
+      animation: glowTitle 3s ease-in-out infinite alternate;
+    }
+    @keyframes glowTitle {
+      from { text-shadow:0 0 12px rgba(255,155,189,.4); }
+      to { text-shadow:0 0 28px rgba(255,214,230,.7); }
+    }
+
+    #start-button {
+      display: block;
+      margin: 40px auto;
+      padding: 14px 28px;
+      font-size: 18px;
+      background: linear-gradient(180deg, var(--accent), #ff7fa8);
+      color: #1a0f14;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 14px rgba(255,127,168,.4);
+      transition: transform 0.3s, filter 0.3s;
+    }
+    #start-button:hover { filter:brightness(1.08); transform:translateY(-2px); }
+
+    #message-container {
+      max-width: 900px;
+      margin: 0 auto 60px;
+      padding: 24px;
+      background: linear-gradient(180deg, var(--card), #141627);
+      box-shadow: var(--glow);
+      border-radius: 20px;
+      display: none;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      animation: glow 3s infinite alternate;
+    }
+    @keyframes glow {
+      from { box-shadow: 0 0 10px rgba(255,155,189,.4); }
+      to { box-shadow: 0 0 20px rgba(255,214,230,.8); }
+    }
+
+    #typewriter {
+      font-size: 1.2em;
+      line-height: 1.8;
+      white-space: pre-line;
+      border-right: 2px solid var(--accent);
+      overflow: hidden;
+      animation: blink 0.75s step-end infinite;
+      min-height: 400px;
+      text-align: left;
+      padding: 0 10px;
+    }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    .signature {
+      font-family: "Playfair Display", serif;
+      text-align: right;
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 1.3em;
+      font-style: italic;
+    }
+
+    #back-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background: linear-gradient(180deg, var(--accent), #ff7fa8);
+      color: #1a0f14;
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0 0 14px rgba(255,127,168,.4);
+      transition: transform 0.3s, filter 0.3s;
+    }
+    #back-button:hover { filter:brightness(1.08); transform:translateY(-2px); }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2em; }
+      #typewriter { font-size: 1em; }
+      .signature { font-size: 1.1em; }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      width: 20px; height: 20px;
+      background: var(--heart);
+      transform: rotate(45deg);
+      animation: float 8s infinite ease-in-out, fadeIn 2s forwards;
+      opacity: 0.6;
+    }
+    .heart::before,.heart::after {
+      content:"";
+      position:absolute;
+      width:20px;height:20px;
+      background:var(--heart);
+      border-radius:50%;
+    }
+    .heart::before{top:-10px;left:0}
+    .heart::after{left:-10px;top:0}
+    @keyframes float {
+      0% { transform: translateY(0) rotate(45deg) scale(1); }
+      50% { transform: translateY(-100px) rotate(45deg) scale(1.2); }
+      100% { transform: translateY(0) rotate(45deg) scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bg-music" loop>
+    <source src="sorry.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Floating hearts -->
+  <div class="heart" style="top:10%; left:5%; animation-delay:0s;"></div>
+  <div class="heart" style="top:20%; left:80%; animation-delay:2s;"></div>
+  <div class="heart" style="top:30%; left:40%; animation-delay:4s;"></div>
+  <div class="heart" style="top:50%; left:70%; animation-delay:6s;"></div>
+
+  <button id="start-button" onclick="startSite()">Click here, Cathy 💗</button>
+
+  <div id="message-container">
+    <h1>Sorry</h1>
+    <div id="typewriter"></div>
+    <div class="signature">— Mark</div>
+    <a href="index.html" id="back-button">← Back to Index</a>
+  </div>
+
+  <script>
+    const fullMessage = `
+Cathy, sorry kung naasar kita. Hindi ko naman intensyon na masaktan ka o makadagdag sa bigat ng araw mo. Minsan nadadala lang ako sa biro o salita, at hindi ko agad napapansin na nakakaapekto na pala sa’yo.
+
+Gusto kong malaman mo na importante ka sa akin, kaya ayoko na may tampuhan o sama ng loob sa pagitan natin. Kung may pagkukulang ako, handa akong tanggapin at ayusin, basta bumalik lang ang gaan ng loob mo.
+
+Pasensya na talaga, Cathy. Bawi ako sa’yo, at gagawin ko ang kaya ko para hindi na maulit. Sana mapatawad mo ako, kasi mas mahalaga sa akin na masaya ka kaysa sa kahit ano pa man.
+
+`;
+
+    function typeText(text, index = 0) {
+      if (index <= text.length) {
+        document.getElementById("typewriter").innerText = text.slice(0, index);
+        const delay = 60 + Math.random() * 60;
+        setTimeout(() => typeText(text, index + 1), delay);
+      }
+    }
+
+    function startSite() {
+      const music = document.getElementById('bg-music');
+      const message = document.getElementById('message-container');
+      const button = document.getElementById('start-button');
+
+      music.play().then(() => {
+                message.style.display = 'block';
+        setTimeout(() => {
+          message.style.opacity = '1';
+        }, 100);
+
+        button.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        setTimeout(() => {
+          typeText(fullMessage);
+        }, 3200); // shorter delay so text starts sooner
+      }).catch(() => {
+        alert("Please tap anywhere to enable music 💗");
+        document.body.addEventListener('click', () => music.play(), { once: true });
+      });
+    }
+  </script>
+</body>
+</html>
